@@ -13,13 +13,11 @@ public class ProductManager implements ProductService {
 
     private ProductDao productDao;
 
+    @Autowired
     public ProductManager(ProductDao productDao) {
         super();
         this.productDao = productDao;
     }
-
-    @Autowired
-
 
     @Override
     public List<Product> getAll() {
