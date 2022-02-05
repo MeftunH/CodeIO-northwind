@@ -1,6 +1,8 @@
 package codesIO.northwind.business.concretes;
 
 import codesIO.northwind.business.abstracts.ProductService;
+import codesIO.northwind.core.utilities.results.DataResult;
+import codesIO.northwind.core.utilities.results.SuccessDataResult;
 import codesIO.northwind.dataAccess.abstracts.ProductDao;
 import codesIO.northwind.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +22,11 @@ public class ProductManager implements ProductService {
     }
 
     @Override
-    public List<Product> getAll() {
+    public DataResult<List<Product>> getAll() {
 
-        return this.productDao.findAll();
+        return new SuccessDataResult<List<Product>>(
+                this.productDao.findAll(),"Data listed"
+        );
 
     }
 }
