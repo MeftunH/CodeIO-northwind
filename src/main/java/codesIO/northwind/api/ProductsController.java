@@ -31,6 +31,7 @@ public class ProductsController {
 
     @PostMapping("/add")
     public Result addProduct(Product product) {
-        return new Result(true, "Product added successfully");
+        return this.productService.add(product);
     }
+
 }
